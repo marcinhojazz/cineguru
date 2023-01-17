@@ -18,7 +18,7 @@ const MovieList = ({ movies }) => {
   return (
     <ContainerMovies>
       {movies.map(movie => (
-        <li key={movie.id} className='border flex flex-col border-[red] w-72 md:w-44 lg:w-60'>
+        <li key={movie.id} className='border flex flex-col w-72 md:w-44 lg:w-60'>
           <Link href={`/movie/${movie.id}`}>
             {/* <Image
               width={250}
