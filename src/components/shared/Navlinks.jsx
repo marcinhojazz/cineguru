@@ -11,7 +11,7 @@ export default function Navlinks({ className }) {
     <ul className={`md:flex lg:flex gap-4 ${className}`}>
       {listLinks.map((link, index) => (
         <li key={link.index}>
-          <Link className='block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100' href={link.url}>
+          <Link className='block px-4 py-2 text-xl text-white hover:bg-gray-100 hover:text-gray-800' href={link.url}>
             {link.name}
           </Link>
         </li>

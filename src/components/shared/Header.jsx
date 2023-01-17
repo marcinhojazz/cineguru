@@ -1,11 +1,10 @@
-import Link from 'next/link'
 import Logo from './Logo'
 import MenuButton from './MenuButton'
 import Navlinks from './Navlinks'
 
 export default function Header() {
   return (
-    <header className='flex justify-between py-4 bg-[#ffb804] text-white'>
+    <header className='flex justify-between items-center px-6 py-4 bg-[#ffb804] '>
       <Logo />
       <div>
         {/* Navlink desktop */}

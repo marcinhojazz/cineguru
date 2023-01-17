@@ -3,11 +3,22 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
+function ContainerMovies({ children }) {
+  return (
+    <>
+      <ul className="border w-full flex flex-wrap justify-center gap-4">
+        {children}
+      </ul>
+
+    </>
+  )
+}
+
 const MovieList = ({ movies }) => {
   return (
-    <ul className="border w-full flex flex-wrap justify-center gap-4">
+    <ContainerMovies>
       {movies.map(movie => (
-        <li key={movie.id} className='border flex flex-col border-[red] w-[200px]'>
+        <li key={movie.id} className='border flex flex-col border-[red] w-72 md:w-44 lg:w-60'>
           <Link href={`/movie/${movie.id}`}>
             {/* <Image
               width={250}
@@ -19,7 +30,7 @@ const MovieList = ({ movies }) => {
           </Link>
         </li>
       ))}
-    </ul>
+    </ContainerMovies>
   )
 }
 

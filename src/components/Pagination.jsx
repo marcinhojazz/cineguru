@@ -1,20 +1,25 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import { useState, useEffect } from 'react'
-import axios from 'axios'
-import { API_URL, API_KEY } from '../utils/config'
+import React from 'react';
 
-function Pagination({ filters, setFilters, currentPage, setCurrentPage, setMovies }) {
-  useEffect(() => {
-    axios.get(`${API_URL}/discover/movie?api_key=${API_KEY}&page=${currentPage}&with_genres=${filters.genre_ids}&primary_release_year=${filters.release_date}&vote_average.gte=${filters.vote_count}`)
-      .then(response => setMovies(response.data.results))
-  }, [currentPage, filters])
-
+const Pagination = ({ currentPage, totalPages, handlePageChange }) => {
   return (
-    <div>
-      <button onClick={() => setCurrentPage(currentPage - 1)} disabled={currentPage === 1}>Página anterior</button>
-      <button onClick={() => setCurrentPage(currentPage + 1)}>Próxima página</button>
+    <div className="flex justify-center">
+      <button
+        className="bg-gray-300 hover:bg-gray-400 px-2 py-1 rounded-l"
+        disabled={currentPage === 1}
+        onClick={() => handlePageChange(currentPage - 1)}
+      >
+        Anterior
+      </button>
+      <p className="px-2 py-1">Página {currentPage} de {totalPages}</p>
+      <button
+        className="bg-gray-300 hover:bg-gray-400 px-2 py-1 rounded-r"
+        disabled={currentPage === totalPages}
+        onClick={() => handlePageChange(currentPage + 1)}
+      >
+        Próxima
+      </button>
     </div>
   )
 }
 
-export default Pagination
+export default Pagination;
